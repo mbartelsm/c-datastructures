@@ -1,37 +1,4 @@
-#include <stdlib.h>
-#include <stdio.h>
-
-
-#define list_t int
-#define IS_DOUBLE 1
-
-
-typedef struct List {
-    struct List * next;
-    
-#if IS_DOUBLE
-    struct List * prev;
-#endif
-
-    list_t value;
-} List;
-
-
-List * listConstruct();
-List * listConstructWith(list_t value);
-List * listEnd(List * list);
-List * listAppend(List * list, list_t value);
-List * listInsert(List * list, list_t value);
-list_t listTakeNext(List * list);
-void listFree(List * list);
-
-
-#if IS_DOUBLE
-List * listStart(List * list);
-List * listPrepend(List * list, list_t value);
-list_t listTake(List * list);
-#endif
-
+#include "lists.h"
 
 /// Creates a new empty list, value is set to bitwise 0.
 List * listConstruct() {
